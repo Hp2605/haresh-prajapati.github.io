@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Haresh Prajapati — SAP B1 Technical Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --border: #e8eaed;
+    --text-primary: #0d1117;
+    --text-secondary: #5a6172;
+    --text-muted: #9aa0b0;
+    --accent-blue: #1a56db;
+    --accent-blue-light: #eff3fe;
+    --accent-blue-mid: #dce6fd;
+    --accent-teal: #0d9488;
+    --accent-teal-light: #ecfdf5;
+    --accent-amber: #d97706;
+    --accent-amber-light: #fffbeb;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.09), 0 4px 8px rgba(0,0,0,0.05);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--accent-blue); }
+  .nav-cta {
+    background: var(--accent-blue);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: #1344bb !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-blue-light);
+    border: 1px solid var(--accent-blue-mid);
+    color: var(--accent-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-blue); }
+  .hero-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    letter-spacing: 0.01em;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 500px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent-blue);
+    color: white;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(26,86,219,0.25);
+  }
+  .btn-primary:hover { background: #1344bb; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,86,219,0.3); }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--text-primary);
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); transform: translateY(-2px); }
+  
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .stat-card.accent {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: white;
+  }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+  }
+  .stat-card.accent .stat-number { color: white; }
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .stat-card.accent .stat-label { color: rgba(255,255,255,0.7); }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-section { background: var(--off-white); padding: 80px 0; }
+  .summary-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .summary-left .section-label { margin-bottom: 20px; }
+  .summary-text {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+  }
+  .summary-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: all 0.2s;
+  }
+  .tag:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: var(--accent-blue-light); }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .skill-group:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .skill-group-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .skill-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .skill-group-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-chip {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience-section { background: var(--off-white); padding: 80px 0; }
+  .experience-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--border));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .timeline-item:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 36px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent-blue);
+  }
+  .timeline-item.current::before { background: var(--accent-teal); box-shadow: 0 0 0 2px var(--accent-teal); }
+  .timeline-meta {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .timeline-role { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
+  .timeline-period {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .timeline-company {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: 14px;
+  }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .timeline-points li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent-blue);
+    font-size: 0.75rem;
+    top: 6px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: #d0d5e0; }
+  .project-card:hover::before { opacity: 1; }
+  .project-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .project-icon {
+    width: 44px; height: 44px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .project-impact {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+  }
+  .impact-enterprise { background: #eff3fe; color: #1a56db; }
+  .impact-integration { background: #ecfdf5; color: #0d9488; }
+  .impact-compliance { background: #fffbeb; color: #d97706; }
+  .impact-automation { background: #fdf2f8; color: #9333ea; }
+  .project-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 18px;
+  }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  /* ── MORE PROJECTS ── */
+  .more-projects { background: var(--off-white); padding: 80px 0; }
+  .more-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  }
+  .mini-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 36px; }
+  .mini-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex; align-items: center; gap: 10px;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+  .mini-card:hover { border-color: var(--accent-blue); color: var(--accent-blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .mini-card span { font-size: 1.1rem; }
+
+  /* ── CONTACT ── */
+  .contact-section { padding: 80px 40px; }
+  .contact-wrap {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2035 100%);
+    border-radius: var(--radius-lg);
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-wrap::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(26,86,219,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7db8;
+    margin-bottom: 12px;
+  }
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .contact-text { font-size: 0.95rem; color: #8a9ac0; line-height: 1.75; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-link:hover {
+    background: rgba(26,86,219,0.2);
+    border-color: rgba(26,86,219,0.5);
+    transform: translateX(4px);
+  }
+  .contact-link-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .hero-image {
+	  width: 280px;
+	  height: 280px;
+	  background-color: #e5e7eb; /* light grey */
+	  border-radius: 50%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  text-align: center;
+   }
+  .contact-link-text { flex: 1; }
+  .contact-link-label { font-size: 0.72rem; color: #6b7db8; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+  .contact-link-value { font-size: 0.9rem; color: white; font-weight: 500; margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 28px 40px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+	/* ═══ EDUCATION ═══ */
+#education{background:var(--bg)}
+.edu-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
+.edu-visual{position:relative}
+.edu-img{border-radius:20px;overflow:hidden;border:1px solid var(--b1);box-shadow:0 40px 100px rgba(0,0,0,.5)}
+.edu-img img{width:100%;height:360px;object-fit:cover;filter:brightness(.5) saturate(.7);display:block}
+.edu-img-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(64,120,255,.1),rgba(168,85,247,.07));border-radius:20px}
+.edu-img-txt{position:absolute;bottom:0;left:0;right:0;padding:1.8rem}
+.edu-img-txt h3{font-weight:800;color:var(--white);font-size:1.05rem;margin-bottom:.25rem}
+.edu-img-txt p{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--cyan)}
+/* degree decoration */
+.edu-deco{position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(64,120,255,.12),transparent);display:flex;align-items:center;justify-content:center}
+.edu-deco svg{width:50px;height:50px;opacity:.4}
+.edu-list{display:flex;flex-direction:column;gap:1rem}
+.ec{display:flex;align-items:center;gap:1.5rem;padding:1.4rem;background:#f8fafc;border:1px solid var(--b1);border-radius:14px;transition:all .3s;position:relative;overflow:hidden}
+.ec::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--g3);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+.ec:hover::before{transform:scaleY(1)}
+.ec:hover{border-color:rgba(255,179,0,.2);transform:translateX(7px)}
+.ec-yr{font-weight:900;font-size:1.8rem;color:var(--gold);min-width:68px;line-height:1}
+.ec-div{width:1px;height:42px;background:var(--b1);flex-shrink:0}
+.ec-title{font-weight:700;font-size:.9rem;color:#000;margin-bottom:.3rem}
+.ec-uni{font-size:.76rem;color:var(--t2)}
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 40px; }
+    .summary-inner { grid-template-columns: 1fr; padding: 0 20px; gap: 28px; }
+    .experience-inner { padding: 0 20px; }
+    section { padding: 60px 20px; }
+    .contact-section { padding: 60px 20px; }
+    .contact-wrap { grid-template-columns: 1fr; padding: 36px 24px; gap: 36px; }
+    .contact-title { font-size: 1.7rem; }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">HP</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+	<li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade-in" id="about">
+  <div>
+    <!-- <div class="hero-badge">Available for Opportunities</div> -->
+    <h1>Haresh Prajapati</span></h1>
+    <p class="hero-title">SAP B1 Technical Team Manager &nbsp;·&nbsp; Solution Architect <br> <a href="https://wmsspl.com/" target="_blank">
+    WMS — SAP GOLD Partner, Dubai
+  </a> </p>
+    <p class="hero-desc">	
+      Senior SAP Business One Technical Consultant and Technical Team Manager with over
+		10+ years  of hands-on experience in designing, developing, and deploying enterprise-grade 
+		SAP B1 solutions across India, the Middle East, and global markets.
+		<br><br>
+		Currently leading the technical team at WMS (SAP GOLD Partner, Dubai), 
+		overseeing work allocation, delivery standards, code reviews, and team mentoring 
+		while continuing to architect scalable, high-performance SAP B1 solutions for enterprise clients.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secoecondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-section">
+    <div class="hero-image">
+		<img src="NaviBlueSuitWithoutBG.png" alt="Profile Image" width="260" height="360">
+	</div><br><br>
+  <div class="hero-stats">
+    <div class="stat-card accent">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Enterprise Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">🏆</div>
+      <div class="stat-label">Award 2022</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">SAP</div>
+      <div class="stat-label">Gold Partner Team Lead</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-section">
+  <div class="summary-inner fade-in">
+    <div class="summary-left">
+      <div class="section-title" style="font-size:1.5rem; margin-bottom:0;">SAP B1 Technical Lead</div>
+    </div>
+    <div>
+      <p class="summary-text">
+        A results-driven SAP Business One Technical consultant who has managed full-cycle ERP implementations 
+        from requirements gathering through post-go-live support. Specialised in custom Add-on development 
+        using C# and the SAP DI/COM API, Service Layer integrations, SAP HANA & MS-SQL databases, 
+        and real-world automation for industries spanning manufacturing, retail, wholesale, textiles, 
+        and e-commerce.
+      </p>
+      <p class="summary-text" style="margin-top:14px;">
+        Currently leading the technical team at WMS (SAP GOLD Partner, Dubai), architecting scalable 
+        SAP solutions with modern REST API ecosystems, e-government compliance integrations, and 
+        intelligent banking automation frameworks.
+      </p>
+      <div class="summary-tags">
+        <span class="tag">SAP Business One On Premise</span>
+		<span class="tag">SAP Business One Cloud</span>
+		<span class="tag">SAP Business One Web Client Extension</span>
+        <span class="tag">SAP Customer Checkouts</span>
+		<span class="tag">Van Sales Mobile Application</span>
+		<span class="tag">PDT Mobile Application</span>
+		<span class="tag">Warehouse Management System</span>
+        <span class="tag">E-Invoicing Solutions for Multiple Countries</span>
+        <span class="tag">Integration with various third-party e-commerce platforms</span>
+		<span class="tag">Integration with Various Banking Systems</span>
+        <span class="tag">Power BI / Tableau Reporting Tools</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title fade-in">Technical Expertise and Skills</h2>
+  <p class="section-desc fade-in">Core technologies I use to build robust SAP B1 solutions and enterprise integrations.</p>
+  <div class="skills-grid fade-in">
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#eff3fe">💾</div>
+        <div class="skill-group-title">SAP Ecosystem</div>
+      </div>
+      <div class="skill-items">
+	  <span class="skill-chip">SAP add-ons</span>
+		<span class="skill-chip">SAP workflows</span>
+        <span class="skill-chip">SAP Web Client Extensions</span>
+		<span class="skill-chip">SAP Fiori/SAPUI5</span>
+        <span class="skill-chip">Web APIs</span>
+        <span class="skill-chip">Windows Services</span>
+        <span class="skill-chip">Mobile Application</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#ecfdf5">⚙️</div>
+        <div class="skill-group-title">Languages & Frameworks</div>
+      </div>
+      <div class="skill-items">
+         <span class="skill-chip">VB.NET</span>
+        <span class="skill-chip">C#</span>
+		<span class="skill-chip">.NET Framework</span>
+		<span class="skill-chip">ADO.NET</span>
+        <span class="skill-chip">HTML/CSS/JS</span>
+		<span class="skill-chip">Python</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#fffbeb">🗄️</div>
+        <div class="skill-group-title">Database</div>
+      </div>
+      <div class="skill-items">
+        <span class="skill-chip">MS-SQL Server</span>
+        <span class="skill-chip">SAP HANA DB</span>
+        <span class="skill-chip">SSIS</span>
+        <span class="skill-chip">SSRS</span>
+        <span class="skill-chip">SSAS</span>
+        <span class="skill-chip">Crystal Reports</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#fdf2f8">🔗</div>
+        <div class="skill-group-title">Integrations</div>
+      </div>
+      <div class="skill-items">
+	  <span class="skill-chip">SMS Integration</span>
+        <span class="skill-chip">Shopify Integration</span>
+		<span class="skill-chip">Salesforce Integration</span>
+		<span class="skill-chip">Microsoft Dynamics 365 Integration</span>
+        <span class="skill-chip">ZATCA Portal Integration Saudi Arabia</span>
+        <span class="skill-chip">E-Invoicing India</span>
+        <span class="skill-chip">E-Invoicing UAE</span>
+        <span class="skill-chip">WhatsApp Integration</span>
+		<span class="skill-chip">Bank Integration</span>
+        
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#f0fdf4">📊</div>
+        <div class="skill-group-title">Analytics & BI</div>
+      </div>
+      <div class="skill-items">
+        <span class="skill-chip">SAP Analytics</span>
+		<span class="skill-chip">Zoho Analytics</span>
+        <span class="skill-chip">Excel Inter-Active</span>
+        <span class="skill-chip">Power BI</span>
+		<span class="skill-chip">Tableau</span>
+        <span class="skill-chip">Query Reports</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-icon" style="background:#fefce8">🧑‍💼</div>
+        <div class="skill-group-title">Leadership</div>
+      </div>
+      <div class="skill-items">
+        <span class="skill-chip">Team Management</span>
+		<span class="skill-chip">Internal Team Training</span>
+        <span class="skill-chip">Gap Analysis</span>
+		<span class="skill-chip">Solution Design</span>
+        <span class="skill-chip">Client Training</span>
+        <span class="skill-chip">Peer Review</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- EXPERIENCE -->
+<div class="experience-section" id="experience">
+  <div class="experience-inner">
+    <h2 class="section-title fade-in">Experience Timeline</h2>
+    <p class="section-desc fade-in">10+ years of progressive SAP B1 development across multiple industries and geographies.</p>
+
+    <div class="timeline fade-in">
+
+      <div class="timeline-item current">
+        <div class="timeline-meta">
+          <div class="timeline-role">Technical Team Manager</div>
+          <div class="timeline-period">Sep 2023 — Present</div>
+        </div>
+        <div class="timeline-company"> <a href="https://wmsspl.com/" target="_blank"> WMS — SAP GOLD Partner · Dubai (Remote) </a></div>
+        <ul class="timeline-points">
+          <li>Overseeing full technical team operations, work allocation, and delivery timelines across enterprise SAP B1 projects</li>
+          <li>Architecting scalable SAP B1 add-on solutions with a focus on performance, security, and third-party integrations</li>
+          <li>Conducting regular training sessions to upskill team members on SAP B1, HANA, and API integration patterns</li>
+          <li>Driving code review practices and deployment standards across the development lifecycle</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-period">Jun 2021 — Sep 2023 · 2 yrs 4 mos</div>
+        </div>
+        <div class="timeline-company"><a href="https://praxisinfosolutions.com/" target="_blank">Praxis Info Solutions Pvt. Ltd. · Pune, India</a></div>
+        <ul class="timeline-points">
+          <li>Built and enhanced SAP B1 standard add-ons including Automatic Communication Engine and Banking Automation</li>
+          <li>Integrated third-party REST APIs: SAP Service Layer, GST, E-Invoicing, WhatsApp, Bank APIs (KOTAK, HDFC, ICICI, AXIS, SBI)</li>
+          <li>Developed Windows Services for scheduled automation workflows and background processing</li>
+          <li>Gained deep proficiency in SAP HANA database and migrated complex queries from MS-SQL to HANA</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-period">Apr 2018 — May 2021 · 3 yrs 5 mos</div>
+        </div>
+        <div class="timeline-company"><a href="https://www.hnsindia.com/" target="_blank">Hard N'Soft Consultancy · Surat, Gujarat</a></div>
+        <ul class="timeline-points">
+          <li>Built and enhanced custom ERP for the Textiles industry using .NET Framework, DevExpress UI controls, and SQL Server</li>
+          <li>Designed databases, stored procedures, views, and Crystal Reports for client-specific business analysis</li>
+          <li>Conducted client gap analysis sessions and translated business needs into technical specifications</li>
+          <li>Completed full SDLC: analysis, design, development, testing, and deployment</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-period">Sep 2016 — Mar 2018 · 1 yr 7 mos</div>
+        </div>
+        <div class="timeline-company"><a href="https://sysproerp.com/" target="_blank">SysPro ERP Solution · Surat, Gujarat</a></div>
+        <ul class="timeline-points">
+          <li>Enhanced custom ERP for Wholesaler and Retail industries using .NET Framework and SQL Server</li>
+          <li>Built analytical data structures and Crystal Reports for client business intelligence needs</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-role">Software Engineer (Junior)</div>
+          <div class="timeline-period">Jun 2015 — Sep 2016 · 1 yr 4 mos</div>
+        </div>
+        <div class="timeline-company"><a href="https://www.banswarasyntex.com/garment-unit-daman/" target="_blank">Banswara Garments · Vapi, Gujarat</a></div>
+        <ul class="timeline-points">
+          <li>Developed Sampling Department module using VB.NET and SQL Server</li>
+          <li>Supported Warehouse Management ERP and gained foundational skills in .NET and database design</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- KEY PROJECTS -->
+<section id="projects">
+  <h2 class="section-title fade-in">Key Projects</h2>
+  <p class="section-desc fade-in">A selection of high-impact SAP B1 solutions delivered for enterprise clients across industries.</p>
+
+  <div class="projects-grid fade-in">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">🧾</div>
+        <span class="project-impact impact-compliance">Compliance</span>
+      </div>
+      <div class="project-title">E-Invoicing Add-on — KSA (ZATCA)</div>
+      <p class="project-desc">
+        Developed a full ZATCA-compliant e-invoicing solution for Saudi Arabia, generating e-invoices for SAP B1 
+        sales transactions via the government Fatoora portal using REST APIs. Handles CSR generation, cryptographic 
+        stamp creation, PDF/A-3 generation, and response storage in SAP.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">ZATCA SDK</span>
+        <span class="tech-tag">Cryptography</span>
+        <span class="tech-tag">REST API</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#ecfdf5">🛒</div>
+        <span class="project-impact impact-integration">Integration</span>
+      </div>
+      <div class="project-title">Shopify ↔ SAP B1 Integration</div>
+      <p class="project-desc">
+        End-to-end Shopify–SAP integration automating order posting into SAP Sales Orders, creating AR Invoices 
+        on delivery, generating Incoming Payments on Shopify payment events, and auto-reconciling the full 
+        transaction chain — eliminating manual intervention entirely.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">Shopify API</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">Web APIs</span>
+        <span class="tech-tag">HANA DB</span>
+        <span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#eff3fe">🏦</div>
+        <span class="project-impact impact-automation">Automation</span>
+      </div>
+      <div class="project-title">Automatic Banking Transactions System</div>
+      <p class="project-desc">
+        A comprehensive SAP Add-on + Console App + Web Portal + custom APIs automating SAP banking module. 
+        Supports API-based and file-based incoming/outgoing payments for KOTAK, HDFC, ICICI, AXIS, SBI, 
+        and YES Bank. Uses SSL, digital signatures, and cryptography for secure bank communication.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">Web APIs</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">SSL</span>
+        <span class="tech-tag">Cryptography</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fdf2f8">🔄</div>
+        <span class="project-impact impact-enterprise">Enterprise</span>
+      </div>
+      <div class="project-title">Inter-Company Transfer Add-on</div>
+      <p class="project-desc">
+        Manages bidirectional transactions between two SAP B1 database entities using the SAP Service Layer. 
+        Automates PO→SO, Delivery→GRPO, AP Invoice→AR Invoice, and Outgoing→Incoming Payment flows 
+        across separate company databases in real time.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP Service Layer</span>
+        <span class="tech-tag">Web APIs</span>
+        <span class="tech-tag">ADO.NET</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-header">
+        <div class="project-icon" style="background:#ecfdf5">📢</div>
+        <span class="project-impact impact-automation">Automation</span>
+      </div>
+      <div class="project-title">Automatic Communication Engine</div>
+      <p class="project-desc">
+        SAP Add-on + Windows Service for automated Email, SMS, and WhatsApp messaging of SAP transactions 
+        and reports. Covers Sales, Purchases, Banking, and Crystal Reports. Dynamically generates subjects and 
+        bodies from configuration — supports CSV attachments and HTML mail bodies.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">Windows Services</span>
+        <span class="tech-tag">ADO.NET</span>
+        <span class="tech-tag">WhatsApp API</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#ecfdf5">🛒</div>
+        <span class="project-impact impact-integration">Integration</span>
+      </div>
+      <div class="project-title">Salesforce ↔ SAP B1 Integration</div>
+      <p class="project-desc">
+       End-to-end Salesforce–SAP integration automating product and customer creation, 
+	   order posting to SAP Sales Orders, AR invoice generation on delivery, 
+	   and stock management transactions—eliminating manual intervention.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+		<span class="tech-tag">Windows Services</span>
+        <span class="tech-tag">Salesforce API</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">Web APIs</span>
+        <span class="tech-tag">HANA DB</span>
+        <span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">📦</div>
+        <span class="project-impact impact-integration">Integration</span>
+      </div>
+      <div class="project-title">Samsung MPose WMS Integration</div>
+      <p class="project-desc">
+        Add-on and background service managing SAP warehouse and bin-wise inventory on the Samsung MPose 
+        billing portal. Fetches invoices from Samsung's portal and posts them into SAP B1 using REST APIs, 
+        ensuring accurate, real-time inventory synchronisation.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+		<span class="tech-tag">Windows Services</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">REST API</span>
+        <span class="tech-tag">MS-SQL</span>
+        <span class="tech-tag">HANA DB</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">🧾</div>
+        <span class="project-impact impact-compliance">Compliance</span>
+      </div>
+      <div class="project-title">E-Invoicing Add-on — India (GST)</div>
+      <p class="project-desc">
+        Generates E-Invoice and E-Way Bill for SAP B1 sales transactions using GSP providers — IRIS, ClearTax, 
+        Cygnet, and Webtel — via REST APIs. Supports bulk E-Invoice and E-Way Bill generation with flexible 
+        selection criteria and saves all government portal responses in SAP.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">Web APIs</span>
+        <span class="tech-tag">ADO.NET</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#eff3fe">🏭</div>
+        <span class="project-impact impact-enterprise">Enterprise</span>
+      </div>
+      <div class="project-title">Technical Contract Review Add-on</div>
+      <p class="project-desc">
+        Review and approval workflow for SAP Sales Orders before production entry. Automates bulk Production 
+        Order generation based on technical contract conditions — resolving child item BOMs, resource routing, 
+        and multi-stage production hierarchies.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">ADO.NET</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">MS-SQL</span>
+        <span class="tech-tag">HANA DB</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#ecfdf5">🛒</div>
+        <span class="project-impact impact-integration">Integration</span>
+      </div>
+      <div class="project-title">Bakkal  ↔ SAP B1 Integration</div>
+      <p class="project-desc">
+        Architected a robust integration between the Bakkal Turkey e-commerce platform and SAP, 
+		automating master data creation and order processing using web services.
+		Ensured real-time synchronization of transactions, significantly enhancing accuracy,
+		scalability, and operational efficiency
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">Ticimax Web Services</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+        <span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">🧾</div>
+        <span class="project-impact impact-compliance">Compliance</span>
+      </div>
+      <div class="project-title">E-Invoicing Add-on — UAE (TaxLab AI)</div>
+      <p class="project-desc">
+       Designed and developed a UAE-compliant E-Invoicing solution for SAP Business One, ensuring adherence to local regulatory requirements.
+	   Integrated with the TaxLab AI portal using REST APIs to automate the generation and submission of e-invoices for sales transactions.
+	   Implemented real-time validation, response handling, and status tracking to ensure accuracy and compliance.
+	   Enabled seamless synchronization of invoice data between SAP B1 and the TaxLab AI.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">REST API</span>
+        <span class="tech-tag">Windows Services</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">🔧</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Sub-Contracting(Job Working) Add-on</div>
+      <p class="project-desc">
+       Designed and developed a Digital Signature Add-on for SAP Business One to apply secure digital signatures on marketing documents.
+	   Integrated PFX certificate and hardware dongle-based signing to ensure compliance and data authenticity.
+       Enabled bulk digital signing functionality, allowing multiple documents to be signed in a single operation.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">✍️</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Digital Signature Add-on</div>
+      <p class="project-desc">
+       Designed and developed a Sub-Contracting Add-on for SAP Business One to manage outsourced production processes efficiently.
+	   Automated the end-to-end subcontracting cycle, including material issue, tracking, and receipt of finished goods.
+	   Enabled real-time visibility of subcontracting transactions, ensuring accurate inventory and cost management.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">✅</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Quality Control Add-on</div>
+      <p class="project-desc">
+       A robust Quality Control Add-on designed to streamline inspection and quality assurance processes
+	   within warehouse and manufacturing operations. This solution ensures accurate tracking of product quality 
+	   across multiple stages, reducing errors and improving compliance.Improved product quality and consistency
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">📦</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Bulk Production Management Add-on</div>
+      <p class="project-desc">
+       A powerful add-on designed to automate and streamline the creation and 
+	   lifecycle management of production orders across complete BOM hierarchies. 
+	   This solution significantly reduces manual effort, improves planning accuracy, 
+	   and ensures timely closure of production processes.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">📦</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Bulk Production Management Add-on</div>
+      <p class="project-desc">
+       A powerful add-on designed to automate and streamline the creation and 
+	   lifecycle management of production orders across complete BOM hierarchies. 
+	   This solution significantly reduces manual effort, improves planning accuracy, 
+	   and ensures timely closure of production processes.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	<div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:#fffbeb">📍</div>
+        <span class="project-impact impact-compliance">Enterprise</span>
+      </div>
+      <div class="project-title">Inventory Aging Report Add-on</div>
+      <p class="project-desc">
+       An advanced reporting add-on designed to provide accurate inventory aging analysis
+	   without the need for inventory transfers or stock reclassification. 
+	   This solution helps businesses gain clear visibility into stock movement, 
+	   slow-moving items, and holding periods for better inventory control.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">SAP SDK</span>
+        <span class="tech-tag">HANA DB</span>
+		<span class="tech-tag">MS-SQL</span>
+      </div>
+    </div>
+	
+	
+  </div>
+  
+</section>
+
+<!-- MORE PROJECTS -->
+<div class="more-projects">
+  <div class="more-inner">
+    <h2 class="section-title fade-in">Additional SAP B1 Solutions</h2>
+    <p class="section-desc fade-in" style="margin-bottom:0;">40+ enterprise-grade add-ons and integrations delivered across industries.</p>
+    <div class="mini-projects fade-in">
+      <div class="mini-card"><span>📦</span> Custom Packaging Add-on</div>
+      <div class="mini-card"><span>📍</span> Inventory Tracking Add-on</div>
+      <div class="mini-card"><span>🏭</span> Textile ERP (Custom)</div>
+      <div class="mini-card"><span>🏪</span> Retail/Wholesale ERP</div>
+      <div class="mini-card"><span>📋</span> Sampling Module (Garments)</div>
+      <div class="mini-card"><span>📊</span> Query-Based Business Reports</div>
+      <div class="mini-card"><span>🔐</span> Zoho Analytics Integration</div>
+    </div>
+  </div>
+</div>
+<!-- ══ EDUCATION ══ -->
+<section id="education">
+  <h2 class="rv">Education - Academic Background</h2>
+  <p class="ss rv">Strong academic foundation from Gujarat's premier universities.</p>
+  <div class="edu-wrap">
+    <div class="edu-visual rv">
+      <div class="edu-img">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=70" alt="University"/>
+        <div class="edu-img-ov"></div>
+        <div class="edu-img-txt">
+          <h3>Academic Excellence</h3>
+          <p>MCA Graduate · Gujarat, India</p>
+        </div>
+      </div>
+      <div class="edu-deco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+    </div>
+    <div class="edu-list">
+      <div class="ec rv"><div class="ec-yr">2016</div><div class="ec-div"></div><div><div class="ec-title">Master of Computer Application</div><div class="ec-uni">Karnataka State Open University · Surat, Gujarat</div></div></div>
+      <div class="ec rv"><div class="ec-yr">2014</div><div class="ec-div"></div><div><div class="ec-title">Bachelor of Computer Application</div><div class="ec-uni">Veer Narmad South Gujarat University · Navsari, Gujarat</div></div></div>
+      <div class="ec rv"><div class="ec-yr">2011</div><div class="ec-div"></div><div><div class="ec-title">Higher Secondary Certificate</div><div class="ec-uni">GSEB · Navsari, Gujarat</div></div></div>
+      <div class="ec rv"><div class="ec-yr">2009</div><div class="ec-div"></div><div><div class="ec-title">Secondary School Certificate</div><div class="ec-uni">GSEB · Navsari, Gujarat</div></div></div>
+    </div>
+  </div>
+</section>s
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-wrap fade-in">
+    <div>
+      <h2 class="contact-title">Ready to build<br/>something great?</h2>
+      <p class="contact-text">
+        Whether you need a complex SAP B1 integration, e-invoicing compliance, 
+        banking automation, or a full ERP customisation — let's talk.
+      </p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:prajapatiharesh1994@gmail.com">
+        <div class="contact-link-icon">✉️</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">prajapatiharesh1994@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/haresh-prajapati-337475153/" target="_blank">
+        <div class="contact-link-icon">🔗</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">linkedin.com/in/haresh-prajapati</div>
+        </div>
+      </a>
+      <a class="contact-link" href="tel:+918401500739">
+        <div class="contact-link-icon">📞</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">Phone</div>
+          <div class="contact-link-value">+91 84015 00739</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Haresh Prajapati &nbsp;·&nbsp; Senior SAP B1 Technical Consultant &nbsp;·&nbsp; Gujarat, India</p>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
